@@ -24,4 +24,12 @@ public class MovieControllerShould {
         verify(service).find("titanic");
 
     }
+
+    @Test
+    @DisplayName("should invoke the find by id method of service")
+    public void should_invoke_the_find_by_id_method_of_service() {
+        MovieController controller = new MovieController(service);
+        controller.findById(597);
+        verify(service).findById(597);
+    }
 }

@@ -23,4 +23,8 @@ public class MovieService {
 //      }
       return response.getResults();
     }
+
+    public MovieDetail findById(int id) {
+       return gateway.findById(id);
+        }
 }

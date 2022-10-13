@@ -1,6 +1,5 @@
 package co.incubyte.co.incubyte;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,5 +36,15 @@ class MovieServiceShould {
         List<Movie> movies = service.find("titanic");
         verify(gateway).find("titanic");
         assertThat(movies.size()).isZero();
+    }
+
+
+    @Test
+    @DisplayName("should return movie details on gateway find by id method")
+    public void should_return_movie_details_on_gateway_find_by_id_method() {
+        MovieService movieService = new MovieService(gateway);
+        MovieDetail movieDetail = new MovieDetail(597, "Titanic", "/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", "1997-11-18", 7.876f, 21628, "abchdhjd", "/3WjbxaqYB4vAbdUfdr5vbglD2JZ.jpg", 149.117f, "en");
+        movieService.findById(597);
+        verify(gateway).findById(597);
     }
 }

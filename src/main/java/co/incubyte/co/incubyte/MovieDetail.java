@@ -2,7 +2,8 @@ package co.incubyte.co.incubyte;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Movie {
+public class MovieDetail {
+    private int id;
     private String name;
     private String image;
     private String date;
@@ -11,15 +12,10 @@ public class Movie {
     private String description;
     private String backgroundImage;
     private float popularity;
-    private int id;
     private String language;
 
-    public Movie(@JsonProperty("title") String name,@JsonProperty("poster_path") String image,@JsonProperty("release_date") String date,@JsonProperty("vote_average") float rating,@JsonProperty("vote_count") int count) {
-        this.name = name;
-        this.image = image;
-        this.date = date;
-        this.rating = rating;
-        this.count = count;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -54,11 +50,20 @@ public class Movie {
         return popularity;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public String getLanguage() {
         return language;
+    }
+
+    public MovieDetail(@JsonProperty("id") int id,@JsonProperty("title") String name,@JsonProperty("poster_path") String image,@JsonProperty("release_date") String date,@JsonProperty("vote_average") float rating,@JsonProperty("vote_count") int count,@JsonProperty("overview") String description,@JsonProperty("backdrop_path") String backgroundImage,@JsonProperty("popularity") float popularity,@JsonProperty("original_language") String language) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.date = date;
+        this.rating = rating;
+        this.count = count;
+        this.description = description;
+        this.backgroundImage = backgroundImage;
+        this.popularity = popularity;
+        this.language = language;
     }
 }

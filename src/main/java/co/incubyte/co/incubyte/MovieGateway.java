@@ -20,4 +20,8 @@ public class MovieGateway {
     public TmdbResponse find(String query) {
        return client.toBlocking().retrieve(HttpRequest.GET( "search/movie?api_key=e470560acfb347655d8af373c29aba11&query=" + URLEncoder.encode(query , StandardCharsets.UTF_8)),TmdbResponse.class);
     }
+
+    public MovieDetail findById(int id){
+        return client.toBlocking().retrieve(HttpRequest.GET("/movie/597?api_key=e470560acfb347655d8af373c29aba11&"), MovieDetail.class);
+    }
 }
